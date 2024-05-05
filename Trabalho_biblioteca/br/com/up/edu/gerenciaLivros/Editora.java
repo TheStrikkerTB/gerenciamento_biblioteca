@@ -1,7 +1,7 @@
 package br.com.up.edu.gerenciaLivros;
 
 public class Editora {
-    String nome;
+    private String nome;
     public Editora(String nome){
         this.nome = nome;
     }
