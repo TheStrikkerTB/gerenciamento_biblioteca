@@ -1,7 +1,7 @@
 package br.com.up.edu.gerenciaLivros;
 
 public class Genero {
-    String tipo;
+    private String tipo;
     public Genero(String tipo){
         this.tipo = tipo;
     }
