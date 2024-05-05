@@ -56,9 +56,9 @@ public class Livro {
     @Override
     public String toString() {
         return "Titulo: " +titulo +
-                "\nAutor: " +autor.nome +
-                "\nEditora: " + editora.nome +
-                "\nGenero: " + genero.tipo;
+                "\nAutor: " +autor.getNome() +
+                "\nEditora: " + editora.getNome() +
+                "\nGenero: " + genero.getTipo();
     }
     
 }
