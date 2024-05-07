@@ -1,14 +1,12 @@
 package modelos;
 
-import java.util.ArrayList;
-
 public class Livro {
     private String titulo;
     private Autor autor;
-    private ArrayList<Genero> genero;
-    private ArrayList<Editora> editora;
+    private String genero;
+    private String editora;
 
-    public Livro(String titulo, Autor autor, ArrayList<Genero> genero, ArrayList<Editora> editora) {
+    public Livro(String titulo, Autor autor, String genero, String editora) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -31,19 +29,19 @@ public class Livro {
         this.autor = autor;
     }
 
-    public ArrayList<Genero> getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(ArrayList<Genero> genero) {
+    public void setGenero(String genero) {
         this.genero = genero;   
     }
 
-    public ArrayList<Editora> getEditora() {
+    public String getEditora() {
         return editora;
     }
 
-    public void setEditora (ArrayList<Editora> editora) {
+    public void setEditora (String editora) {
         this.editora = editora;
     }
 

@@ -5,16 +5,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Interface menu = new Interface();
 
+    private static Scanner scanner = new Scanner(System.in);
+
+        
+
+    public static void main(String[] args) {
+        Interface menu = new Interface();
+        String titulo = menu.getTituloLivro();
+        String autor = menu.getAutorLivro();
+        String genero = menu.getGeneroLivro();
+        String editora = menu.getEditoraLivro();
         boolean menuLoop = true;
         Integer opMenu  = 0;
-
-        String nomeAutor;
-        String tituloLivro;
-        Genero nomeGenero = new Genero();
         
         do{
             menu.imprimirMenu();
@@ -26,14 +29,7 @@ public class Main {
             switch (opMenu){
                 case 1:
                 menu.adicionarLivro();
-                System.out.println("Insira o titulo do livro:");
-                tituloLivro = scanner.next();
-                System.out.println();
-                System.out.println("Insira o nome do autor:");
-                nomeAutor = scanner.next();
-                System.out.println();
-                System.out.println("Selecione o genero do livro:");
-                menu.listaGenero(nomeGenero);
+                Livro novoLivro = new Livro(titulo, autor, genero, editora);
             }
             menuLoop = false;
 

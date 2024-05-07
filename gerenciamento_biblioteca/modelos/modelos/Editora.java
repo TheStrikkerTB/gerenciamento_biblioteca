@@ -8,14 +8,15 @@ public class Editora {
 
     static {
         nomeEditora = new ArrayList<>();
-        nomeEditora.add("Companhia das Letras");
-        nomeEditora.add("Record");
-        nomeEditora.add("Intrínseca");
-        nomeEditora.add("Sextante");
-        nomeEditora.add("Globo Livros");
+        nomeEditora.add("[1] Companhia das Letras");
+        nomeEditora.add("[2] Record");
+        nomeEditora.add("[3] Intrinseca");
+        nomeEditora.add("[4] Sextante");
+        nomeEditora.add("[5] Globo Livros");
     }
 
-    public static List<String> getEditora(){
+    public static List<String> getEditora() {
         return nomeEditora;
     }
+
 }

@@ -8,15 +8,16 @@ public class Genero {
 
     static {
         nomeGenero = new ArrayList<>();
-        nomeGenero.add("Romance");
-        nomeGenero.add("Infantil");
-        nomeGenero.add("Ficção");
-        nomeGenero.add("Suspense");
-        nomeGenero.add("Biografia");
+        nomeGenero.add("[1] Romance");
+        nomeGenero.add("[2] Infantil");
+        nomeGenero.add("[3] Ficcao");
+        nomeGenero.add("[4] Suspense");
+        nomeGenero.add("[5] Biografia");
     }
 
-    public static List<String> getGenero(){
+    public static List<String> getGenero() {
         return nomeGenero;
     }
+
 }
 
