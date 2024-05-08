@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /*Faz um loop para imprimir o menu enquanto o usuário não selecionar a opção de sair ou o programa finalizar
 Recebe os valores inseridos pelo usuário na classe interface para adicionar livros e chama o construtor para ser enviado ao arraylist da classe Biblioteca
+Recebe os valores de pesquisa e remoção dos itens para serem aplicados na classe bilbioteca
 */
 
 public class Main {
@@ -39,14 +40,12 @@ public class Main {
                 break;
 
                 case 2:
-                //Criar o biblioteca.removeLivros por titulo (pode ser só por titulo acho)
                 user.removerLivros();
                 titulo = scanner.next();
                 biblioteca.removeLivros(titulo);         
                 break;
 
                 case 3:
-                // Criar o biblioteca.pesquisar para pesquisar um livro (pode ser só por titulo acho)
                 user.pesquisarLivro();
                 titulo = scanner.next();
                 biblioteca.procurarLivro(titulo);
