@@ -1,37 +1,46 @@
 import modelos.*;
 import util.*;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+
+/*Faz um loop para imprimir o menu enquanto o usuário não selecionar a opção de sair ou o programa finalizar
+Recebe os valores inseridos pelo usuário na classe interface para adicionar livros e chama o construtor para ser enviado ao arraylist da classe Biblioteca
+*/
 
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
 
-        
-
     public static void main(String[] args) {
-        Interface menu = new Interface();
-        String titulo = menu.getTituloLivro();
-        String autor = menu.getAutorLivro();
-        String genero = menu.getGeneroLivro();
-        String editora = menu.getEditoraLivro();
+        Interface user = new Interface();
+        Biblioteca biblioteca = new Biblioteca();
         boolean menuLoop = true;
-        Integer opMenu  = 0;
-        
+        Integer opMenu;
+
         do{
-            menu.imprimirMenu();
+            user.Flush();
+            user.imprimirMenu();
             opMenu = scanner.nextInt();
-
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-
+            user.Flush();
             switch (opMenu){
                 case 1:
-                menu.adicionarLivro();
+                user.adicionarLivro();
+                String titulo = user.get_tituloLivro();
+                Autor autor = user.get_autorLivro();
+                Genero genero = user.get_generoLivro();
+                Editora editora = user.get_editoraLivro();
+
                 Livro novoLivro = new Livro(titulo, autor, genero, editora);
+                user.Flush();
+                biblioteca.addLivros(novoLivro);
+                break;
+                case 2:
+                menuLoop = false;
+                break;
+                case 4:
+                biblioteca.imprimirLivros();
+                break;
             }
-            menuLoop = false;
 
         }while(menuLoop);
 

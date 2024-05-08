@@ -1,12 +1,14 @@
 package modelos;
 
+//Constroi um objeto livro a partir dos outros obejtos autor, genero e editora. Recebe também uma string com o titulo do livro
+
 public class Livro {
     private String titulo;
     private Autor autor;
-    private String genero;
-    private String editora;
+    private Genero genero;
+    private Editora editora;
 
-    public Livro(String titulo, Autor autor, String genero, String editora) {
+    public Livro(String titulo, Autor autor, Genero genero, Editora editora) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -29,20 +31,27 @@ public class Livro {
         this.autor = autor;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;   
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
-    public String getEditora() {
+    public Editora getEditora() {
         return editora;
     }
 
-    public void setEditora (String editora) {
+    public void setEditora(Editora editora) {
         this.editora = editora;
     }
+
+    @Override
+    public String toString() {
+    return "Título: " + titulo + ", Autor: " + autor + ", Gênero: " + genero + ", Editora: " + editora;
+}
+
+
 
 }

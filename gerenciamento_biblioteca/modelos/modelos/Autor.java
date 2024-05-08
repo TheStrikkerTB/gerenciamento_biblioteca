@@ -1,5 +1,7 @@
 package modelos;
 
+//Constroi o objeto autor a partir de uma String de nome
+
 public class Autor {
     private String nome;
 
@@ -13,6 +15,11 @@ public class Autor {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
     
 }

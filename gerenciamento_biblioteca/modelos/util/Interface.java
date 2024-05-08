@@ -1,20 +1,30 @@
 package util;
 
 import modelos.*;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Interface{
     private static Scanner scanner = new Scanner(System.in);
-    private List<String> editoras = Editora.getEditora();
-    private List<String> generos = Genero.getGenero();
-
     private String tituloLivro;
     private Autor autorLivro;
-    private String generoLivro;
-    private String editoraLivro;
+    private Genero generoLivro;
+    private Editora editoraLivro;
+    private int cont;
 
+    // Chama as listas estáticas de genero e editora (Já previamente selecionadas para o usuário)
+    List<Genero> generos = Genero.getnomeGenero();
+    List<Editora> editoras = Editora.getnomeEditora();
+
+    //Limpa o terminal do usuário
+    public void Flush(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+
+    //Imprime o menu principal;
     public void imprimirMenu(){
         System.out.println("==========================================================\n");
         System.out.println("               [Gerenciamento de Biblioteca]              \n");
@@ -26,112 +36,132 @@ public class Interface{
         System.out.println("                [1] Adicionar um novo livro               ");
         System.out.println("                [2] Remover um livro                      ");
         System.out.println("                [3] Pesquisar um livro                    ");
-        System.out.println("                [4] Listar estoque                        \n");
+        System.out.println("                [4] Listar estoque                        ");
+        System.out.println("                [5] Sair                                  ");
         System.out.println("==========================================================");
         System.out.println();
         System.out.println();
         System.out.println("Sua escolha: ");
     }
 
-    public void adicionarLivro(){
-        Integer opGenero;
-        Integer opEditora;
+    //Segmentação do menu para a adição de livros, recebe do usuário os argumentos da classe Livro
+    //Em genero e editora é impresso para o usuário uma lista pre-estabelecida para ser escolhida qual ser utilizada
 
+    public void adicionarLivro(){
+        cont++;
+        Flush();
+        if(cont > 1) scanner.nextLine();
         System.out.println("==========================================================\n");
         System.out.println("                 [Adicionar um novo Livro]                \n");
         System.out.println("==========================================================");
         System.out.println();
         System.out.println("                  Insira o titulo do livro:               \n");
         System.out.println("Titulo: ");
-        tituloLivro = scanner.next();
+        tituloLivro = scanner.nextLine();
+
         System.out.println("                  Insira o autor do livro:                \n");
         System.out.println("Autor: ");
-        autorLivro = scanner.next();
+
+        String nomeAutor = scanner.nextLine();
+        autorLivro = new Autor(nomeAutor);
+
         System.out.println("                Selecione o genero do livro:              \n");
+        imprimirGenero();
+
         System.out.println("Genero: ");
-        listaGenero();
-        opGenero = scanner.nextInt();
+        Integer opGenero = scanner.nextInt();
+
         switch (opGenero){
             case 1:
-            generoLivro = "Romance";
+            generoLivro = new Genero("Romance");
             break;
             case 2:
-            generoLivro = "Infantil";
+            generoLivro = new Genero("Infantil");
             break;
             case 3:
-            generoLivro = "Ficcao";
+            generoLivro = new Genero("Ficcao");
             break;
             case 4:
-            generoLivro = "Suspense";
+            generoLivro = new Genero("Suspense");
             break;
             case 5:
-            generoLivro = "Biografia";
+            generoLivro = new Genero("Biografia");
             break;
             default:
             System.out.println("Opçao invalida, retornando ao menu...");
-            //Adicionar sleep 2 seg
+            try {
+                Thread.sleep(2000); // Pausa por 2 segundos
+                } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                }
+            return;
         }
+
         System.out.println("                Selecione a editora do livro:              \n");
+        imprimirEditora();
+
         System.out.println("Editora: ");
-        listaEditora();
-        opEditora = scanner.nextInt();
+        Integer opEditora = scanner.nextInt();
+
         switch (opEditora){
             case 1:
-            editoraLivro = "Companhia das Letras";
+            editoraLivro = new Editora("Companhia das Letras");
             break;
             case 2:
-            editoraLivro = "Infantil";
+            editoraLivro = new Editora("Record");
             break;
             case 3:
-            editoraLivro = "Ficcao";
+            editoraLivro = new Editora("Intrinseca");
             break;
             case 4:
-            editoraLivro = "Suspense";
+            editoraLivro = new Editora("Sextante");
             break;
             case 5:
-            editoraLivro = "Biografia";
+            editoraLivro = new Editora("Globo Livros");
             break;
             default:
             System.out.println("Opçao invalida, retornando ao menu...");
-            //Adicionar sleep 2 seg
+            try {
+                Thread.sleep(2000); // Pausa por 2 segundos
+                } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                }
+            return;
         }
 
     }
 
-    public void listaEditora(){
-        System.out.println("Editoras Disponiveis:");
-        System.out.println();
 
-        for (String editora : editoras) {
-            System.out.println(editora);
-        }
-        System.out.println();
-    }
-
-    public void listaGenero(){
+    //Imprime a lista de generos pre-estabelecidos
+    public void imprimirGenero(){
         System.out.println("Generos Disponiveis:");
-        System.out.println();
-
-        for (String genero : generos) {
+        for (Genero genero : generos) {
             System.out.println(genero);
         }
-
-        System.out.println();
     }
 
-    public String getTituloLivro() {
+    //Imprime a lista de editoras pre-estabelecidas
+    public void imprimirEditora(){
+        System.out.println("Editoras Disponiveis:");
+        for (Editora editora : editoras) {
+            System.out.println(editora);
+        }
+    }
+
+    public String get_tituloLivro(){
         return tituloLivro;
     }
 
-    public String getAutorLivro() {
+    public Autor get_autorLivro() {
         return autorLivro;
     }
 
-    public String getGeneroLivro() {
+    public Genero get_generoLivro(){
         return generoLivro;
     }
 
-    public String getEditoraLivro() {
+    public Editora get_editoraLivro(){
         return editoraLivro;
     }
+
 }
