@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-//Criar o filemanager para salvar a lista de livros atualizada em um arquivo.txt;
+//filemanager para salvar a lista de livros atualizada em um arquivo.txt;
 /**
  * FileManager
  */
