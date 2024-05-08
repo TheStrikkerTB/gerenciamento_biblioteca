@@ -25,6 +25,7 @@ public class Main {
             switch (opMenu){
                 case 1:
                 user.adicionarLivro();
+
                 String titulo = user.get_tituloLivro();
                 Autor autor = user.get_autorLivro();
                 Genero genero = user.get_generoLivro();
@@ -34,12 +35,24 @@ public class Main {
                 user.Flush();
                 biblioteca.addLivros(novoLivro);
                 break;
+
                 case 2:
+                //Criar o biblioteca.removeLivros por titulo (pode ser só por titulo acho)
+                break;
+
+                case 3:
+                // Criar o biblioteca.pesquisar para pesquisar um livro (pode ser só por titulo acho)
+                break;
+
+                case 4:
+                //Inserir pergunta a partir da clasee interface para pergutar se precisa exibir de modo ordenado (por titulo) ou só do jeito que inseriu
+                biblioteca.imprimirLivros(); //Já faz a lista por inserção
+                break;
+
+                case 5:
                 menuLoop = false;
                 break;
-                case 4:
-                biblioteca.imprimirLivros();
-                break;
+
             }
 
         }while(menuLoop);

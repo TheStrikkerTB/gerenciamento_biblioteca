@@ -23,7 +23,6 @@ public class Interface{
         System.out.flush();
     }
 
-
     //Imprime o menu principal;
     public void imprimirMenu(){
         System.out.println("==========================================================\n");

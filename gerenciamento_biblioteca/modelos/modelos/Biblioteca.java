@@ -42,4 +42,6 @@ public class Biblioteca {
         }
     }
 
+    //Criar um metodo para remover e para pesquisar um livro (não sei se precisa ser por autor, genero etc... talvez só titulo)
+
 }
